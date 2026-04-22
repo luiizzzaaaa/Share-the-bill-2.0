@@ -25,7 +25,7 @@ public :
 
     User(const User& otherUser);
 
-    User operator=(const User& otherUser);
+    User& operator=(const User& otherUser);
 
     ~User();
 
