@@ -34,7 +34,6 @@ public:
     void addParticipantSH( const std::string& name, double percentage );
 
 
-
 };
 
 
