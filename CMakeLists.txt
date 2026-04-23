@@ -8,4 +8,5 @@ add_executable(Share_the_bill_2_0 main.cpp
         User.cpp
         Expense.h
         Expense.cpp
-        EqualExpense.h)
+        EqualExpense.h
+        EqualExpense.cpp)

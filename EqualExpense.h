@@ -7,6 +7,7 @@
 
 #include "Expense.h"
 #include <vector>
+#include <string>
 
 class EqualExpense : public Expense {
 
@@ -15,15 +16,15 @@ private:
 
 public:
     EqualExpense();
-    EqualExpense(std::string description, double total, std::sting paayer, const std::vector<std::string>& participants);
+    EqualExpense(std::string description, double total, std::string payer, const std::vector<std::string>& participants);
     EqualExpense(const EqualExpense&other);
 
     EqualExpense& operator=(const EqualExpense& other);
 
-    EqualExpense() override;
+    ~EqualExpense() override;
 
     friend std::istream& operator>>(std::istream& in, EqualExpense& obj);
-    friend std::ostream& operator<<(std::ostream& out, EqualExpense& obj);
+    friend std::ostream& operator<<(std::ostream& out,const EqualExpense& obj);
 
     void calculateShares() const override;
 
