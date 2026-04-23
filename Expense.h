@@ -11,7 +11,7 @@
 
 class Expense {
 
-protected: // ca si "copiii" sa poata foloseasca sau sa modifice atributele
+private:
     std::string description;
     double total;
     std::string payerName;
@@ -42,7 +42,7 @@ public:
     virtual void calculateShares() const = 0; // metoda pur virtuala si transforma clasa intr-o clasa abstracta
 
 
-    
+
 
 
 

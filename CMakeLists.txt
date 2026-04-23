@@ -6,4 +6,5 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(Share_the_bill_2_0 main.cpp
         User.h
         User.cpp
-        Expense.h)
+        Expense.h
+        Expense.cpp)
