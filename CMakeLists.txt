@@ -13,4 +13,5 @@ add_executable(Share_the_bill_2_0 main.cpp
         PercentageExpense.h
         PercentageExpense.cpp
         Category.h
-        Category.cpp)
+        Category.cpp
+        Debt.h)
