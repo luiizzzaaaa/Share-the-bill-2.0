@@ -11,4 +11,5 @@ add_executable(Share_the_bill_2_0 main.cpp
         EqualExpense.h
         EqualExpense.cpp
         PercentageExpense.h
-        PercentageExpense.cpp)
+        PercentageExpense.cpp
+        Category.h)
