@@ -29,7 +29,7 @@ public:
     std::string getDebtor() const;
     std::string getCreditor() const;
     double getAmount() const;
-    
+
 
 
 };
