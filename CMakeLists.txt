@@ -17,4 +17,5 @@ add_executable(Share_the_bill_2_0 main.cpp
         Debt.h
         Debt.cpp
         Settlement.h
-        Settlement.cpp)
+        Settlement.cpp
+        Group.h)
