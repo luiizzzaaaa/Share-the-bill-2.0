@@ -19,7 +19,7 @@ private:
 
 public:
     Settlement();
-    Settlement(std::string payer , std::string receiver , double, std::string amount, std::string method);
+    Settlement(std::string payer , std::string receiver , double amount, std::string method);
     Settlement( const Settlement& obj);
 
     Settlement& operator=(const Settlement& obj);
