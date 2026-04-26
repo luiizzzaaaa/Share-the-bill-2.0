@@ -27,7 +27,7 @@ public:
     Group& operator=(const Group& obj);
     ~Group();
 
-    friend std::istream& operator>>(std::istream in, Group& g);
+    friend std::istream& operator>>(std::istream& in, Group& g);
     friend std::ostream& operator<<(std::ostream& out, const Group& g);
 
     void addUser( const User& u);
