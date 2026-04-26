@@ -19,4 +19,5 @@ add_executable(Share_the_bill_2_0 main.cpp
         Settlement.h
         Settlement.cpp
         Group.h
-        Group.cpp)
+        Group.cpp
+        meniu.h)
