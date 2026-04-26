@@ -1,6 +1,7 @@
 #include "Group.h"
 #include <fstream>
 #include <stdexcept>
+#include <algorithm>
 
 
 Group::Group() : groupName("New Group") {}
@@ -97,5 +98,107 @@ void Group::saveProgressToFile(const std::string& filename) const {
 
 }
 
+void Group::loadProgressFromFile(const std::string& filename) {
+    std::ifstream inFile(filename);
+    if (!inFile.is_open()) {
+        std::cout << "Error opening file for reading" << std::endl;
+        return;
+    }
 
+    std::string aaa;
+    inFile >> aaa >> groupName;
+
+    int totalMembers;
+    inFile >> aaa >> totalMembers;
+
+    members.clear();
+
+    for (int i = 0; i < totalMembers; i++) {
+        std::string name, email;
+        double balance;
+        inFile >> name >> email >> balance;
+        User u(name,email);
+        u.setBalance(balance);
+        members.push_back(u);
+    }
+
+    std::cout << " Datele au fost incarcate cu succes din" << filename;
+    inFile.close();
+}
+
+
+void Group::showGroupAwards() const {
+    std::cout << std::endl<< " Group Awards Summary : " << std::endl;
+    if (members.empty() || expenses.empty()) {
+        std::cout << "Not enough data for awards. " << std::endl;
+        return;
+    }
+    std::map<std::string, double> amountPaidPerUser;
+    for ( const auto exp : expenses ) {
+        amountPaidPerUser[exp->getPayerName()] += exp->getTotal();
+    }
+    std::string topSpender="";
+    double maxSpent = 0;
+    for ( const auto& pair : amountPaidPerUser ) {
+        if (pair.second > maxSpent) {
+            maxSpent = pair.second;
+            topSpender = pair.first;
+        }
+    }
+    std::cout << std::endl<< "Top Spender : " << topSpender << std::endl;
+}
+
+void Group::showUserDashboard(const std::string &userName) const {
+    std::cout << std::endl<< " User Dashboard Summary : " << std::endl;
+    bool userFound = false;
+    for ( const auto& u : members ) {
+        if (u.getName() == userName) {
+            std::cout << "Status Balance: " << u.getBalance() << std::endl;
+            userFound = true;
+            break;
+        }
+    }
+    if (!userFound) {
+        std::cout << std::endl<< " User Not Found. " << std::endl;
+        return;
+    }
+
+    std::cout << " Expenses paid by " << userName << ": " << std::endl;
+    for ( const auto& exp : expenses ) {
+        if ( exp -> getPayerName() == userName ) {
+            std::cout << "-> " << exp->getDescription() << " " << exp->getTotal()<< std::endl;
+        }
+    }
+}
+
+
+void Group::simplifyDebts() {
+    std::cout << "\nSimplified Debts Algorithm\n";
+    std::vector<User> debtors;
+    std::vector<User> creditors;
+
+    for (const auto& m : members) {
+        if (m.getBalance() < 0) debtors.push_back(m);
+        else if (m.getBalance() > 0) creditors.push_back(m);
+    }
+
+    int i = 0;
+    int j = 0;
+
+    while (i < debtors.size() && j < creditors.size()) {
+        double debtAmount = std::abs(debtors[i].getBalance());
+        double creditAmount = creditors[j].getBalance();
+
+        double settledAmount = std::min(debtAmount, creditAmount);
+
+        std::cout << debtors[i].getName() << " MUST PAY "
+                  << creditors[j].getName() << " " << settledAmount << std::endl;
+
+        debtors[i].setBalance(debtors[i].getBalance() + settledAmount);
+        creditors[j].setBalance(creditors[j].getBalance() - settledAmount);
+
+        if (debtors[i].getBalance() == 0) i++;
+        if (creditors[j].getBalance() == 0) j++;
+    }
+}
 

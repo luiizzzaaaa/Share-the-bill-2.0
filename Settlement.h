@@ -9,6 +9,8 @@
 #include<iostream>
 #include<string>
 
+#include "Debt.h"
+
 class Settlement {
 
 private:
@@ -29,11 +31,12 @@ public:
     friend std::istream& operator>>(std::istream& in, Settlement& s);
 
 
-    srd::string getPayer() const;
+    std::string getPayer() const;
     std::string getReceiver() const;
     double getAmount() const;
 
 
+    bool isFullySettled(const Debt& debt) const;
 
 };
 

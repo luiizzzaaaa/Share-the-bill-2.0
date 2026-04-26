@@ -41,7 +41,7 @@ public:
 
     virtual void calculateShares() const = 0; // metoda pur virtuala si transforma clasa intr-o clasa abstracta
 
-
+    void applyVoucher(double discountAmount);
 
 
 

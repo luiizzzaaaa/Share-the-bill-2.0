@@ -86,6 +86,10 @@ double User::getBalance() const {
     return this->balance;
 }
 
+void User::setBalance(double newBalance) {
+    this->balance = newBalance;
+}
+
 void User::addToBalance(double amount) {
     this->balance += amount;
 }

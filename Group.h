@@ -12,6 +12,8 @@
 #include "Expense.h"
 #include "Debt.h"
 #include "Settlement.h"
+#include <map>
+#include <cmath>
 
 class Group {
 
@@ -39,8 +41,12 @@ public:
     void processSettlement(const Settlement& s);
 
     void saveProgressToFile( const std::string& filename) const;
+    void loadProgressFromFile( const std::string& filename);
 
 
+    void showGroupAwards() const;
+    void showUserDashboard(const std::string& userName) const;
+    void simplifyDebts();
 
 };
 

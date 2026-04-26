@@ -61,7 +61,9 @@ double Settlement::getAmount() const {
     return amount;
 }
 
-
+bool Settlement::isFullySettled(const Debt& debt) const {
+    return this -> amount >= debt.getAmount();
+}
 
 
 

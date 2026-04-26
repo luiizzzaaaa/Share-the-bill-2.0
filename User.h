@@ -40,6 +40,8 @@ public :
 
     double getBalance() const;
 
+    void setBalance(double newBalance);
+
     void addToBalance(double amount);
 
 };

@@ -83,7 +83,16 @@ void Expense::setPayerName(const std::string& newPayerName) {
     this->payerName = newPayerName;
 }
 
-
+void Expense::applyVoucher(double discountAmount) {
+    if (discountAmount < 0.0) {
+        throw std::invalid_argument("Discount must be greater than zero");
+    }
+    if ( discountAmount > total ) {
+        throw std::invalid_argument("Discount must be less than total");
+    }
+    total -= discountAmount;
+    std::cout << "Discount amount: "<<discountAmount<< " applied for "<< description<<'/n'<<std::endl;
+}
 
 
 
