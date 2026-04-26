@@ -45,9 +45,33 @@ void Group::addUser( const User& u) {
 
 }
 
+void Group::showAllUsers() const {
+    std::cout << "\nAll Users in " << groupName << std::endl;
+    if (members.empty()) {
+        std::cout << "No users added yet.\n";
+        return;
+    }
+    for (const auto& u : members) {
+        std::cout << "- " << u.getName() << " (" << u.getEmail() << ") | Balance: " << u.getBalance() << "\n";
+    }
+}
+
+void Group::removeUser(const std::string& userName) {
+    auto it = std::remove_if(members.begin(), members.end(),
+        [&userName](const User& u) { return u.getName() == userName; });
+
+    if (it != members.end()) {
+        members.erase(it, members.end());
+        std::cout << "User '" << userName << "' was successfully removed.\n";
+    } else {
+        std::cout << "Error: User '" << userName << "' not found.\n";
+    }
+}
+
 void Group::addExpense( Expense* exp) {
     if ( exp != nullptr) {
         expenses.push_back(exp);
+        exp->updateGroupBalances(members);
     }
 }
 

@@ -33,6 +33,7 @@ public:
 
     void addParticipantSH( const std::string& name, double percentage );
 
+    void updateGroupBalances(std::vector<User>& groupMembers) const override;
 
 };
 

@@ -7,6 +7,8 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include"User.h"
 
 
 class Expense {
@@ -41,6 +43,8 @@ public:
 
     virtual void calculateShares() const = 0; // metoda pur virtuala si transforma clasa intr-o clasa abstracta
 
+
+    virtual void updateGroupBalances(std::vector<User>& groupMembers) const = 0;
     void applyVoucher(double discountAmount);
 
 

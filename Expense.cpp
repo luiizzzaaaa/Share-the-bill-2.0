@@ -53,9 +53,9 @@ std::istream& operator>>(std::istream& in, Expense& e) {
 }
 
 std::ostream& operator<<(std::ostream& out,const Expense& e) {
-    out<<"Expense: "<<e.description<<'/n';
-    out<<"Total: "<<e.total<<'/n';
-    out<<"Payer: "<<e.payerName<<'/n';
+    out<<"Expense: "<<e.description<<'\n';
+    out<<"Total: "<<e.total<<'\n';
+    out<<"Payer: "<<e.payerName<<'\n';
     return out;
 }
 
@@ -91,8 +91,10 @@ void Expense::applyVoucher(double discountAmount) {
         throw std::invalid_argument("Discount must be less than total");
     }
     total -= discountAmount;
-    std::cout << "Discount amount: "<<discountAmount<< " applied for "<< description<<'/n'<<std::endl;
+    std::cout << "Discount amount: "<<discountAmount<< " applied for "<< description<<'\n'<<std::endl;
 }
+
+
 
 
 

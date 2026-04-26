@@ -33,6 +33,9 @@ public:
     friend std::ostream& operator<<(std::ostream& out, const Group& g);
 
     void addUser( const User& u);
+
+    void showAllUsers() const;
+    void removeUser(const std::string& userName);
     void addExpense(Expense* exp);
 
     void showAllExpenses() const;

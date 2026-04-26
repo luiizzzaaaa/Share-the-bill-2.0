@@ -104,8 +104,23 @@ void PercentageExpense::addParticipantSH(const std::string &name, double percent
     participantsShares.push_back({name,percentage});
 }
 
+void PercentageExpense::updateGroupBalances(std::vector<User>& groupMembers) const {
+    if (participantsShares.empty()) return;
+    double share = getTotal() / participantsShares.size();
 
-
+    for (auto& u : groupMembers) {
+        if (u.getName() == getPayerName()) {
+            u.addToBalance(getTotal());
+        }
+        for (const auto& shareInfo : participantsShares) {
+            if (shareInfo.first == u.getName()) {
+                double amountOwed = (shareInfo.second / 100.0) * getTotal();
+                u.addToBalance(-amountOwed);;
+                break;
+            }
+        }
+    }
+}
 
 
 

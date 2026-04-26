@@ -14,6 +14,11 @@ private :
     Group activeGroup;
     bool isRunning;
 
+    void userMenu();
+    void expenseMenu();
+    void groupMenu();
+    void fileMenu();
+
 public:
     Meniu();
     Meniu(const Group& g);

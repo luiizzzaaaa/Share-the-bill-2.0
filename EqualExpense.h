@@ -30,7 +30,7 @@ public:
 
     void addParticipant(const std::string& name);
 
-
+    void updateGroupBalances(std::vector<User>& groupMembers) const override;
 
 };
 

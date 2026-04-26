@@ -77,6 +77,22 @@ void EqualExpense::calculateShares() const {
     }
 
 
+void EqualExpense::updateGroupBalances(std::vector<User>& groupMembers) const {
+    if (participants.empty()) return;
+    double share = getTotal() / participants.size();
 
+    for (auto& u : groupMembers)
+    {
+        if (u.getName() == getPayerName()) {
+            u.addToBalance(getTotal());
+        }
+        for (const auto& person : participants) {
+            if (person == u.getName()) {
+                u.addToBalance(-share);
+                break;
+            }
+        }
+    }
+}
 
 
