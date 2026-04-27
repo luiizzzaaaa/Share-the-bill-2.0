@@ -1,0 +1,26 @@
+3 1 EuroTrip 0
+1
+1 Alex alex@mail.com
+1 Bea bea@mail.com
+1 Carmen carmen@mail.com
+1 Dan dan@mail.com
+1 Intrus intrus@mail.com
+2
+3 Intrus
+2
+0
+2
+1 Cazare 400 Alex 4 Alex Bea Carmen Dan
+2 Benzina 200 Bea 3 Alex 30 Bea 40 Carmen 30
+1 BileteMuzeu 60 Carmen 3 Bea Carmen Dan
+3
+0
+3
+2
+3 Dan
+4
+0
+4
+1
+0
+0
